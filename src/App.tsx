@@ -12,41 +12,18 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
-      <header className="bg-black">
-        <div className="container px-4 mx-auto flex items-center gap-x-4 p-6">
-          <a href="/">
-            <img
-              className="size-40 shrink-0"
-              src={badgers}
-              alt="Badgers Darts Academy logo"
-            />
-          </a>
-          <div>
-            <div className="text-2xl font-medium text-white">
-              Pontyclun Badgers
-              Junior Darts Academy
-            </div>
-            {/* <p className="text-gray-500 dark:text-gray-400">
-              You have a new message!
-            </p> */}
-          </div>
-          {/* <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink>Home</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <NavigationMenuLink>Link</NavigationMenuLink>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu> */}
-        </div>
+    <div className="">
+      <div className="bg-black lg:bg-transparent pt-4 lg:py-4 px-6 lg:absolute flex flex-row">
+        <img className="h-40" src={badgers} />
+        <h1 className="ml-4 mt-3 sm:mt-4 text-3xl md:text-5xl text-white text-shadow-lg">
+          <strong>Pontyclun Badgers</strong>
+          <br />
+          <small>
+            <em>junior darts academy</em>
+          </small>
+        </h1>
+      </div>
 
-      </header>
       <div className="bg-black">
         <img className="ml-auto w-full" src={badger} />
       </div>
