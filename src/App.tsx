@@ -48,7 +48,7 @@ function App() {
 
       </header>
       <div className="bg-black">
-        <img className="ml-auto" src={badger} />
+        <img className="ml-auto w-full" src={badger} />
       </div>
     </div>
   );
