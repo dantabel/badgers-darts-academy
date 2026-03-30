@@ -27,14 +27,27 @@ function App() {
       <div className="bg-black">
         <img className="ml-auto w-full" src={badger} />
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-4 items-center place-items-center m-6">
-        <a href="https://www.facebook.com/pontyclunrugbyclub/" target="_blank"><img className="rounded-xl" src="/pontyclun-rfc.jpeg" /></a>
-        <a href="https://www.juniordarts.com/" target="_blank"><img className="rounded-xl" src="/jdc.png" /></a>
-        <a href="https://www.reddragondarts.com/" target="_blank"><img className="" src="/red-dragon.jpeg" /></a>
-        <a href="https://winmau.com/" target="_blank"><img className="rounded-xl" src="/winmau.png" /></a>
+      <div className="py-4 bg-white">
+        <div className="grid md:grid-cols-4 grid-cols-2 gap-4 items-center place-items-center">
+          <a
+            href="https://www.facebook.com/pontyclunrugbyclub/"
+            target="_blank"
+          >
+            <img className="rounded-xl" src="/pontyclun-rfc.jpeg" />
+          </a>
+          <a href="https://www.juniordarts.com/" target="_blank">
+            <img className="rounded-xl" src="/jdc.png" />
+          </a>
+          <a href="https://www.reddragondarts.com/" target="_blank">
+            <img className="rounded-lg" src="/red-dragon.jpeg" />
+          </a>
+          <a href="https://winmau.com/" target="_blank">
+            <img className="rounded-xl" src="/winmau.png" />
+          </a>
+        </div>
       </div>
       <footer className="text-white text-center m-4">
-        &copy;2026 Pontyclun Badgers Junior Darts Academy 
+        &copy;2026 Pontyclun Badgers Junior Darts Academy
       </footer>
     </div>
   );
