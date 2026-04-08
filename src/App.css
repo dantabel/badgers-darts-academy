@@ -2,4 +2,11 @@
 
 body {
   @apply bg-gray-900;
+  .home {
+    footer {
+      /* position: absolute; */
+      /* bottom: 0; */
+      @apply w-full absolute bottom-0;
+    }
+  }
 }

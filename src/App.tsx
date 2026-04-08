@@ -1,5 +1,4 @@
 import badgers from "./assets/badgers.png";
-import badger from "./assets/Gemini_Generated_Image_o2m631o2m631o2m6.png";
 // import {
 //   NavigationMenu,
 //   NavigationMenuContent,
@@ -9,43 +8,40 @@ import badger from "./assets/Gemini_Generated_Image_o2m631o2m631o2m6.png";
 //   NavigationMenuTrigger,
 // } from "@/components/ui/navigation-menu";
 import "./App.css";
+import { Route, Routes, useLocation } from "react-router";
+import Home from "./pages/Home";
+import Register from "./pages/Register"
+import { useEffect, useState } from "react"
 
 function App() {
+  const { pathname } = useLocation();
+  const [pageClass, setPageClass] = useState<string>()
+  useEffect(() => {
+    setPageClass(pathname === '/' ? 'home' : pathname.replaceAll('/', ' ').trim())
+  }, [pathname])
   return (
-    <div className="bg-black">
-      <div className="bg-black lg:bg-transparent pt-4 lg:py-4 px-6 lg:absolute flex flex-row">
-        <img className="h-40" src={badgers} />
-        <h1 className="ml-4 mt-3 sm:mt-4 text-3xl md:text-5xl text-white text-shadow-lg">
-          <strong>Pontyclun Badgers</strong>
-          <br />
-          <small>
-            <em>junior darts academy</em>
-          </small>
-        </h1>
-      </div>
-
-      <div className="bg-black">
-        <img className="ml-auto w-full" src={badger} />
-      </div>
-      <div className="py-4 bg-white">
-        <div className="grid md:grid-cols-4 grid-cols-2 gap-4 items-center place-items-center">
-          <a
-            href="https://www.facebook.com/pontyclunrugbyclub/"
-            target="_blank"
-          >
-            <img className="rounded-xl" src="/pontyclun-rfc.jpeg" />
-          </a>
-          <a href="https://www.juniordarts.com/" target="_blank">
-            <img className="rounded-xl" src="/jdc.png" />
-          </a>
-          <a href="https://www.reddragondarts.com/" target="_blank">
-            <img className="rounded-lg" src="/red-dragon.jpeg" />
-          </a>
-          <a href="https://winmau.com/" target="_blank">
-            <img className="rounded-xl" src="/winmau.png" />
-          </a>
+    <div className={`App ${pageClass}`}>
+      <header className="block z-10">
+        <div className="bg-black lg:bg-transparent pt-4 lg:py-4 px-6 flex flex-row w-full">
+          <a href='/'><img className="h-35" src={badgers} /></a>
+          <div className="ml-4 mt-3 sm:mt-4 text-white text-shadow-lg">
+            <h1 className="text-3xl md:text-5xl">
+              <strong>Pontyclun Badgers</strong>
+            </h1>
+            <h2 className="text-2xl md:text-4xl">
+              <em>junior darts academy</em>
+            </h2>
+          </div>
         </div>
-      </div>
+      </header>
+
+      <main className="text-white clear-both block -z-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="register" element={<Register />} />
+        </Routes>
+      </main>
+
       <footer className="text-white text-center m-4">
         &copy;2026 Pontyclun Badgers Junior Darts Academy
       </footer>
