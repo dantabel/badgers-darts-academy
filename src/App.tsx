@@ -1,29 +1,104 @@
 import badgers from "./assets/badgers.png";
-// import {
-//   NavigationMenu,
-//   NavigationMenuContent,
-//   NavigationMenuItem,
-//   NavigationMenuLink,
-//   NavigationMenuList,
-//   NavigationMenuTrigger,
-// } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import "./App.css";
-import { Route, Routes, useLocation } from "react-router";
+import { Link, Route, Routes, useLocation } from "react-router";
 import Home from "./pages/Home";
-import Register from "./pages/Register"
-import { useEffect, useState } from "react"
+import Register from "./pages/Register";
+import { useEffect, useState } from "react";
+import { ChevronRight, MenuIcon, SquareMenuIcon } from "lucide-react";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./components/ui/sheet";
+import { Button } from "./components/ui/button";
 
 function App() {
   const { pathname } = useLocation();
-  const [pageClass, setPageClass] = useState<string>()
+  const [pageClass, setPageClass] = useState<string>();
+
   useEffect(() => {
-    setPageClass(pathname === '/' ? 'home' : pathname.replaceAll('/', ' ').trim())
-  }, [pathname])
+    setPageClass(
+      pathname === "/" ? "home" : pathname.replaceAll("/", " ").trim()
+    );
+  }, [pathname]);
+
+  const links = [
+    {
+      title: "Home",
+      to: "/",
+    },
+    {
+      title: "Registration Form",
+      to: "/register",
+    },
+    {
+      title: "Sponsors",
+      to: "/sponsors",
+    },
+    // {
+    //   title: "Meet the Team",
+    //   to: "/the-team",
+    // },
+  ];
+
   return (
     <div className={`App ${pageClass}`}>
       <header className="block z-10">
         <div className="bg-black lg:bg-transparent pt-4 lg:py-4 px-6 flex flex-row w-full">
-          <a href='/'><img className="h-35" src={badgers} /></a>
+          <Sheet>
+            <SheetTrigger asChild>
+              {/* <SquareMenuIcon className="size-20 text-white opacity-50 self-center" /> */}
+              <MenuIcon className="size-15 text-white opacity-50 self-center border-2 border-white rounded-md mr-10" />
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SheetHeader>
+                <SheetTitle>Navigation</SheetTitle>
+                {/* <SheetDescription>
+                  Make changes to your profile here. Click save when you&apos;re
+                  done.
+                </SheetDescription> */}
+              </SheetHeader>
+
+              <div className="no-scrollbar overflow-y-auto px-4">
+                <ul className="list-none border-t-1 border-gray">
+                  {links.map((link) => (
+                    <li key={link.to} className="border-b-1 border-gray">
+                      <SheetClose asChild>
+                        <Link to={link.to}  className={"block p-4 hover:bg-white/10" + (link.to===pathname ? ' bg-white/15' : '')}>
+                          {link.title} <ChevronRight className="float-end opacity-50" />
+                        </Link>
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <SheetFooter>
+                {/* <Button type="submit">Save changes</Button>
+                <SheetClose asChild>
+                  <Button variant="outline">Close</Button>
+                </SheetClose> */}
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+
+          <a href="/">
+            <img className="h-35" src={badgers} />
+          </a>
+
           <div className="ml-4 mt-3 sm:mt-4 text-white text-shadow-lg">
             <h1 className="text-3xl md:text-5xl">
               <strong>Pontyclun Badgers</strong>
@@ -32,6 +107,14 @@ function App() {
               <em>junior darts academy</em>
             </h2>
           </div>
+
+          {/* <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu> */}
         </div>
       </header>
 

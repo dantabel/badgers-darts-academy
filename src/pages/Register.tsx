@@ -1,3 +1,6 @@
+import { Button } from "@/components/ui/button"
+import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item"
+
 const Register: React.FC = () => (
   <div>
     <iframe
@@ -7,7 +10,7 @@ const Register: React.FC = () => (
       allowTransparency={true}
       allow="geolocation; microphone; camera; fullscreen; payment"
       src="https://form.jotform.com/260545998894076"
-      frameBorder={0}
+      // frameBorder={0}
       // style="min-width:100%;max-width:100%;height:539px;border:none;"
       style={{minWidth: '100%', maxWidth: '100%', height: '100vh', border: 'none'}}
       // scrolling="yes"
