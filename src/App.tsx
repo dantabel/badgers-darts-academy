@@ -34,10 +34,10 @@ function App() {
       title: "Registration Form",
       to: "/register",
     },
-    {
-      title: "Sponsors",
-      to: "/sponsors",
-    },
+    // {
+    //   title: "Sponsors",
+    //   to: "/sponsors",
+    // },
     // {
     //   title: "Meet the Team",
     //   to: "/the-team",
