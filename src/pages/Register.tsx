@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button"
-import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from "@/components/ui/item"
+
 
 const Register: React.FC = () => (
   <div>

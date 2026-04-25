@@ -1,29 +1,19 @@
 import badgers from "./assets/badgers.png";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import "./App.css";
 import { Link, Route, Routes, useLocation } from "react-router";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import { useEffect, useState } from "react";
-import { ChevronRight, MenuIcon, SquareMenuIcon } from "lucide-react";
+import { ChevronRight, MenuIcon } from "lucide-react";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "./components/ui/sheet";
-import { Button } from "./components/ui/button";
 
 function App() {
   const { pathname } = useLocation();
