@@ -4,7 +4,7 @@ import { Link, Route, Routes, useLocation } from "react-router";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import { useEffect, useState } from "react";
-import { ChevronRight, MenuIcon } from "lucide-react";
+import { ChevronRight, MenuIcon, MenuSquareIcon } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -14,6 +14,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./components/ui/sheet";
+import About from "./pages/About"
+import Sponsors from "./pages/Sponsors"
 
 function App() {
   const { pathname } = useLocation();
@@ -29,14 +31,22 @@ function App() {
     {
       title: "Home",
       to: "/",
+      component: <Home />,
     },
     {
       title: "Registration Form",
       to: "/register",
+      component: <Register />,
+    },
+    {
+      title: "About the Academy",
+      to: "/about",
+      component: <About />,
     },
     // {
     //   title: "Sponsors",
     //   to: "/sponsors",
+    //   component: <Sponsors />,
     // },
     // {
     //   title: "Meet the Team",
@@ -51,7 +61,7 @@ function App() {
           <Sheet>
             <SheetTrigger asChild>
               {/* <SquareMenuIcon className="size-20 text-white opacity-50 self-center" /> */}
-              <MenuIcon className="size-15 text-white opacity-50 self-center border-2 border-white rounded-md mr-10" />
+              <MenuSquareIcon className="size-18 text-white opacity-50 self-center border-white rounded-md mr-0 md:mr-5" />
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>
@@ -85,10 +95,12 @@ function App() {
             </SheetContent>
           </Sheet>
 
-          <a href="/">
-            <img className="h-35" src={badgers} />
-          </a>
-
+          <div>
+            <a href="/">
+              <img className="max-h-35" src={badgers} />
+            </a>
+          </div>   
+          
           <div className="ml-4 mt-3 sm:mt-4 text-white text-shadow-lg">
             <h1 className="text-3xl md:text-5xl">
               <strong>Pontyclun Badgers</strong>
@@ -110,8 +122,7 @@ function App() {
 
       <main className="text-white clear-both block -z-10">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="register" element={<Register />} />
+          {links.map((link) => <Route path={link.to} element={link.component} />)}
         </Routes>
       </main>
 
