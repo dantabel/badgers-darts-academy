@@ -4,7 +4,7 @@ import { Link, Route, Routes, useLocation } from "react-router";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import { useEffect, useState } from "react";
-import { ChevronRight, MenuIcon, MenuSquareIcon } from "lucide-react";
+import { ChevronRight, MenuSquareIcon } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -15,7 +15,7 @@ import {
   SheetTrigger,
 } from "./components/ui/sheet";
 import About from "./pages/About"
-import Sponsors from "./pages/Sponsors"
+// import Sponsors from "./pages/Sponsors"
 
 function App() {
   const { pathname } = useLocation();
